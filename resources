@@ -27,17 +27,32 @@ variables >> can be accessed and modified by users, holds information
 scripting
 command history >> of previously entered commands, easily reecexuted
 
+environment variables >> 
+
 PID >> process identifier x PPID >> parent process identifier, represents PID of process taht created a partiular process (every process has one from whit it originated)
 exit status of a process (PID) sent to PPID
 
+fork() syscall >> to create a new process, a copy of the current one, continuing the execution from the point of creation
 
+                                                                                                      
+*******************************************************************************************************
 
+int main(int argc, char *argv[], char *envp[]) 
+{
+    // Program logic
+    return 0;
+}
 
+for environment variables
+argument envp. envp is an array of strings representing the environment variables
+                                                                                                      
+*******************************************************************************************************
   
 resources
 https://medium.com/@muxanz/how-the-shell-works-internally-when-entering-a-command-42f08458870
 https://medium.com/@nyangaresibrian/simple-shell-b7014425601f
+
                                                                                                       
-TODO
-..
+*******************************************************************************************************
+
 shell build-in commands >> need to recognize and implement
