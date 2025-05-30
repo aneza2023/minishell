@@ -15,14 +15,29 @@ shell already a process by itself >> creating a children process, process within
 need for syscall execve() >> responsible for receiving, confirming success of execution with another syscall exit()
 process after execution terminated with syscall wait() >> necessary for successful completion of child process
 
+system call >> rewuest made by a program to the operating system kernel to perform privileged operations or access system resources (opening/closing files, creating/terminating/managing processes, allocating/freeing memory, performing network operations, interacting with devices)
+
+transition to kernel >> when syscall invoked, from user mode to kernel mode, where it can access privileged operations and resources
+
 ">" output redirection into a pr. a file instead of displaying it on screen
 
 managing of execution of the processes >> foreground/background, allowing user to continue interacting with shell (while command is still running)
                                                                                                                    
 variables >> can be accessed and modified by users, holds information 
-scripting, shell build-in commands
+scripting
+command history >> of previously entered commands, easily reecexuted
+
+PID >> process identifier x PPID >> parent process identifier, represents PID of process taht created a partiular process (every process has one from whit it originated)
+exit status of a process (PID) sent to PPID
+
+
+
+
   
 resources
 https://medium.com/@muxanz/how-the-shell-works-internally-when-entering-a-command-42f08458870
 https://medium.com/@nyangaresibrian/simple-shell-b7014425601f
                                                                                                       
+TODO
+..
+shell build-in commands >> need to recognize and implement
