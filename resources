@@ -1,0 +1,28 @@
+
+command interface with available interface >> possibility of accessing services of the operating system + executing or invoking programs
+
+1) wait for command in standard input
+2) when command typed >> shell saves it as an array of characters + null terminator
+3) separating command into strings >> tokenization process
+4) verifying if command matches a function call >> try to match it to first string of the command with some file located in the PATH environment variable (corresponds to a list of directory locations)
+5) after search of mentioned directories, locating executable command in directory
+6) when command matched, inside of memory string replaced with the path to the directory that hold the command
+
+in linux >> files and processes (pr. -ls a file) >> when files executed, system creates a process (PID/ID)
+executing a command = system call/syscall to create a new process
+shell already a process by itself >> creating a children process, process within shell process >> done with syscall fork()
+
+need for syscall execve() >> responsible for receiving, confirming success of execution with another syscall exit()
+process after execution terminated with syscall wait() >> necessary for successful completion of child process
+
+">" output redirection into a pr. a file instead of displaying it on screen
+
+managing of execution of the processes >> foreground/background, allowing user to continue interacting with shell (while command is still running)
+                                                                                                                   
+variables >> can be accessed and modified by users, holds information 
+scripting, shell build-in commands
+  
+resources
+https://medium.com/@muxanz/how-the-shell-works-internally-when-entering-a-command-42f08458870
+https://medium.com/@nyangaresibrian/simple-shell-b7014425601f
+                                                                                                      
