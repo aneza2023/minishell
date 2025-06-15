@@ -12,6 +12,17 @@
 
 #include "minishell.h"
 
+int run_cd(char *path)
+{
+    if (chdir(path) != 0)
+    {
+        write(STDERR_FILENO, "Error\n", 6);
+        return (1);
+    }
+    run_pwd();
+    return (0);
+}
+
 int run_echo(char **string)
 {
     int i;
@@ -67,6 +78,8 @@ int what_builtin(char **argv)
         run_echo(argv);
     if (ft_strcmp(argv[1], "pwd") == 0)
         run_pwd();
+    if (ft_strcmp(argv[1], "cd") == 0)
+        run_cd(argv[2]);
     return (0);
 }
 
