@@ -6,7 +6,7 @@
 /*   By: anezkahavrankova <anezkahavrankova@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/07 11:53:24 by anezkahavra       #+#    #+#             */
-/*   Updated: 2025/06/07 15:30:01 by anezkahavra      ###   ########.fr       */
+/*   Updated: 2025/06/15 20:30:42 by anezkahavra      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,25 +72,16 @@ int run_pwd(void)
     return (0);
 }
 
-int what_builtin(char **argv)
+int what_builtin(char *argv)
 {
-    if (ft_strcmp(argv[1], "echo") == 0)
-        run_echo(argv);
-    if (ft_strcmp(argv[1], "pwd") == 0)
-        run_pwd();
-    if (ft_strcmp(argv[1], "cd") == 0)
-        run_cd(argv[2]);
-    return (0);
-}
+    char **arguments;
 
-int main(int argc, char *argv[])
-{
-    if (argc < 2)
-    {
-        write(STDERR_FILENO, "Error\n", 6);
-        return (1);
-    }
-    else
-        what_builtin(argv);
+    arguments = ft_split(argv,' ');
+    if (ft_strcmp(arguments[0], "echo") == 0)
+        run_echo(arguments);
+    if (ft_strcmp(arguments[0], "pwd") == 0)
+        run_pwd();
+    if (ft_strcmp(arguments[0], "cd") == 0)
+        run_cd(arguments[1]);
     return (0);
 }
