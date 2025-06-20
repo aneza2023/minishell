@@ -6,7 +6,7 @@
 /*   By: ahavrank <ahavrank@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/07 12:38:30 by anezkahavra       #+#    #+#             */
-/*   Updated: 2025/06/20 14:26:58 by ahavrank         ###   ########.fr       */
+/*   Updated: 2025/06/20 15:10:36 by ahavrank         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ int what_builtin(char *argv, char *envp[]);
 int run_pwd(void);
 int run_echo(char **string);
 int run_env(char *envp[]);
+int run_exit(void);
+int run_export(char *envp);
 
 //libft_later
 int	ft_strcmp(const char *s1, const char *s2);

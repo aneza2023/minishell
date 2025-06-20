@@ -6,13 +6,13 @@
 /*   By: ahavrank <ahavrank@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/07 11:53:24 by anezkahavra       #+#    #+#             */
-/*   Updated: 2025/06/20 14:28:50 by ahavrank         ###   ########.fr       */
+/*   Updated: 2025/06/20 15:18:45 by ahavrank         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-int run_cd(char *path)
+int run_cd(char *path) //issues with absolute path?
 {
     if (chdir(path) != 0)
     {
@@ -68,6 +68,7 @@ int run_pwd(void)
             write(STDOUT_FILENO, &wd[i], 1);
             i++;
         }
+        write(STDOUT_FILENO, "\n", 1);
     }
     return (0);
 }
@@ -85,6 +86,18 @@ int run_env(char *envp[])
     return (0);
 }
 
+int run_exit(void)
+{
+    exit(0);
+}
+
+int run_export(char *envp)
+{
+    setenv(name, value, 0); //if not 0 and name already exists, overwrites name
+    return (0);
+    //check if added correctly, in shell by abc
+}
+
 int what_builtin(char *argv, char *envp[])
 {
     char **arguments;
@@ -98,5 +111,11 @@ int what_builtin(char *argv, char *envp[])
         run_cd(arguments[1]);
     if (ft_strcmp(arguments[0], "env") == 0)
         run_env(envp);
+    if (ft_strcmp(arguments[0], "exit") == 0)
+        run_exit();
+    if (ft_strcmp(arguments[0], "export") == 0)
+        run_export(envp);
+    // if (ft_strcmp(arguments[0], "unset") == 0)
+    //     run_unset();
     return (0);
 }
