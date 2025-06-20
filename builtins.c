@@ -6,7 +6,7 @@
 /*   By: ahavrank <ahavrank@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/07 11:53:24 by anezkahavra       #+#    #+#             */
-/*   Updated: 2025/06/20 15:18:45 by ahavrank         ###   ########.fr       */
+/*   Updated: 2025/06/20 15:49:06 by ahavrank         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,9 +91,23 @@ int run_exit(void)
     exit(0);
 }
 
-int run_export(char *envp)
+int run_export(char *envp[], char *arguments)
 {
-    setenv(name, value, 0); //if not 0 and name already exists, overwrites name
+    int i;
+    char *name;
+    char *value;
+
+    if (arguments == NULL)
+    {
+        i = 0;
+        while (envp[i] != NULL)
+        {
+        printf("%s\n", envp[i]);
+        i++;
+        }  
+    }
+    else
+        setenv(name, value, 0); //if not 0 and name already exists, overwrites name
     return (0);
     //check if added correctly, in shell by abc
 }
@@ -114,7 +128,7 @@ int what_builtin(char *argv, char *envp[])
     if (ft_strcmp(arguments[0], "exit") == 0)
         run_exit();
     if (ft_strcmp(arguments[0], "export") == 0)
-        run_export(envp);
+        run_export(envp, arguments[1]);
     // if (ft_strcmp(arguments[0], "unset") == 0)
     //     run_unset();
     return (0);
