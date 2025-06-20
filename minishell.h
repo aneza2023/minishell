@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anezkahavrankova <anezkahavrankova@stud    +#+  +:+       +#+        */
+/*   By: ahavrank <ahavrank@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/07 12:38:30 by anezkahavra       #+#    #+#             */
-/*   Updated: 2025/06/15 20:34:24 by anezkahavra      ###   ########.fr       */
+/*   Updated: 2025/06/20 14:26:58 by ahavrank         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,10 @@
 #include <readline/history.h>
 
 
-int what_builtin(char *argv);
+int what_builtin(char *argv, char *envp[]);
 int run_pwd(void);
 int run_echo(char **string);
+int run_env(char *envp[]);
 
 //libft_later
 int	ft_strcmp(const char *s1, const char *s2);

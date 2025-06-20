@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   builtins.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anezkahavrankova <anezkahavrankova@stud    +#+  +:+       +#+        */
+/*   By: ahavrank <ahavrank@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/07 11:53:24 by anezkahavra       #+#    #+#             */
-/*   Updated: 2025/06/15 20:30:42 by anezkahavra      ###   ########.fr       */
+/*   Updated: 2025/06/20 14:28:50 by ahavrank         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,20 @@ int run_pwd(void)
     return (0);
 }
 
-int what_builtin(char *argv)
+int run_env(char *envp[])
+{
+    int i;
+
+    i = 0;
+    while (envp[i] != NULL)
+    {
+        printf("%s\n", envp[i]);
+        i++;
+    }
+    return (0);
+}
+
+int what_builtin(char *argv, char *envp[])
 {
     char **arguments;
 
@@ -83,5 +96,7 @@ int what_builtin(char *argv)
         run_pwd();
     if (ft_strcmp(arguments[0], "cd") == 0)
         run_cd(arguments[1]);
+    if (ft_strcmp(arguments[0], "env") == 0)
+        run_env(envp);
     return (0);
 }

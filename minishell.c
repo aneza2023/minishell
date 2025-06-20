@@ -3,23 +3,23 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anezkahavrankova <anezkahavrankova@stud    +#+  +:+       +#+        */
+/*   By: ahavrank <ahavrank@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/15 20:15:23 by anezkahavra       #+#    #+#             */
-/*   Updated: 2025/06/15 20:43:21 by anezkahavra      ###   ########.fr       */
+/*   Updated: 2025/06/20 14:27:20 by ahavrank         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-int main(void)
+int main(int argc, char *argv[], char *envp[]) // need to save envp somewhere for later use
 {
     char *promt;
 
     while (1)
     {
         promt = readline("");
-        what_builtin(promt);
+        what_builtin(promt, envp);
         add_history(promt);
     }
     return (0);
